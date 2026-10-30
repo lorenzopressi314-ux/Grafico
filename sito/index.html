@@ -16,6 +16,18 @@
     --accent: #c4512b;
     --card: #fffaf3;
     --line: #e2d8ca;
+    --panel: #1f1b16;
+    --on-panel: #f5efe6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1a1714; --ink: #f2ebe1; --muted: #b3a99c;
+      --accent: #e0714a; --card: #24201c; --line: #3a342d; --panel: #0f0d0b;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1a1714; --ink: #f2ebe1; --muted: #b3a99c;
+    --accent: #e0714a; --card: #24201c; --line: #3a342d; --panel: #0f0d0b;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -59,7 +71,7 @@
   .card ul { list-style: none; color: var(--muted); font-size: 15px; }
   .card li { padding: 6px 0; border-bottom: 1px dashed var(--line); }
   .card li:last-child { border-bottom: 0; }
-  .card.featured { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .card.featured { background: var(--panel); color: var(--on-panel); border-color: var(--panel); }
   .card.featured ul { color: #cfc6ba; }
   .card.featured li { border-color: #3a342d; }
 
@@ -89,12 +101,12 @@
   .person p { color: var(--muted); font-size: 15px; }
 
   /* Contatti */
-  .contact { background: var(--ink); color: var(--bg); border-top: 0; }
-  .contact h2 { color: var(--bg); }
+  .contact { background: var(--panel); color: var(--on-panel); border-top: 0; }
+  .contact h2 { color: var(--on-panel); }
   .contact p { color: #cfc6ba; max-width: 52ch; }
   .contact .btn { background: var(--accent); color: #fff; }
-  .contact .btn:hover { background: var(--bg); color: var(--ink); }
-  footer { background: var(--ink); color: #8a8176; font-size: 14px; padding: 24px 0 40px; }
+  .contact .btn:hover { background: var(--on-panel); color: var(--panel); }
+  footer { background: var(--panel); color: #8a8176; font-size: 14px; padding: 24px 0 40px; }
 
   @media (max-width: 600px) {
     nav { display: none; }
