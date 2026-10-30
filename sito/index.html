@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tavola Studio — Identità per chi fa cose buone</title>
+<meta name="description" content="Studio grafico indipendente: brand identity e grafica social per ristoranti, bar e produttori locali.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5efe6;
+    --ink: #1f1b16;
+    --muted: #6b6258;
+    --accent: #c4512b;
+    --card: #fffaf3;
+    --line: #e2d8ca;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font: 17px/1.6 "Inter", system-ui, sans-serif;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+  h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 600; line-height: 1.15; }
+
+  /* Header */
+  header { padding: 24px 0; }
+  header .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .logo { font-family: "Fraunces", serif; font-size: 22px; font-weight: 600; text-decoration: none; }
+  .logo span { color: var(--accent); }
+  nav a { margin-left: 20px; text-decoration: none; font-size: 15px; color: var(--muted); }
+  nav a:hover { color: var(--ink); }
+
+  /* Hero */
+  .hero { padding: 72px 0 88px; }
+  .hero h1 { font-size: clamp(40px, 7vw, 76px); max-width: 14ch; }
+  .hero h1 em { color: var(--accent); font-style: italic; }
+  .hero p { margin-top: 24px; font-size: 19px; color: var(--muted); max-width: 52ch; }
+  .btn {
+    display: inline-block; margin-top: 32px; padding: 14px 24px;
+    background: var(--ink); color: var(--bg); text-decoration: none;
+    border-radius: 999px; font-weight: 500;
+  }
+  .btn:hover { background: var(--accent); }
+
+  section { padding: 72px 0; border-top: 1px solid var(--line); }
+  .eyebrow { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+  section h2 { font-size: clamp(30px, 4.5vw, 44px); margin: 8px 0 32px; max-width: 20ch; }
+
+  /* Pacchetti */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 28px; display: flex; flex-direction: column; }
+  .card h3 { font-size: 24px; }
+  .card .price { margin: 8px 0 16px; color: var(--accent); font-weight: 600; }
+  .card ul { list-style: none; color: var(--muted); font-size: 15px; }
+  .card li { padding: 6px 0; border-bottom: 1px dashed var(--line); }
+  .card li:last-child { border-bottom: 0; }
+  .card.featured { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .card.featured ul { color: #cfc6ba; }
+  .card.featured li { border-color: #3a342d; }
+
+  /* Metodo */
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px; counter-reset: step; }
+  .step::before {
+    counter-increment: step; content: "0" counter(step);
+    font-family: "Fraunces", serif; font-size: 40px; color: var(--accent); display: block;
+  }
+  .step h3 { font-size: 20px; margin: 4px 0 6px; }
+  .step p { color: var(--muted); font-size: 15px; }
+
+  /* Lavori */
+  .works { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .work { border-radius: 16px; aspect-ratio: 4 / 3; padding: 24px; display: flex; flex-direction: column; justify-content: flex-end; color: #fff; }
+  .work h3 { font-size: 26px; }
+  .work p { font-size: 14px; opacity: .85; }
+  .w1 { background: linear-gradient(150deg, #2f4a3a, #1d2e24); }
+  .w2 { background: linear-gradient(150deg, #c4512b, #8e3419); }
+  .w3 { background: linear-gradient(150deg, #3b3f6b, #24264a); }
+
+  /* Chi siamo */
+  .duo { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+  .person { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
+  .person h3 { font-size: 22px; }
+  .person .role { color: var(--accent); font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .person p { color: var(--muted); font-size: 15px; }
+
+  /* Contatti */
+  .contact { background: var(--ink); color: var(--bg); border-top: 0; }
+  .contact h2 { color: var(--bg); }
+  .contact p { color: #cfc6ba; max-width: 52ch; }
+  .contact .btn { background: var(--accent); color: #fff; }
+  .contact .btn:hover { background: var(--bg); color: var(--ink); }
+  footer { background: var(--ink); color: #8a8176; font-size: 14px; padding: 24px 0 40px; }
+
+  @media (max-width: 600px) {
+    nav { display: none; }
+    .hero { padding: 40px 0 56px; }
+    section { padding: 56px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#">Tavola<span>.</span>studio</a>
+    <nav>
+      <a href="#pacchetti">Pacchetti</a>
+      <a href="#metodo">Metodo</a>
+      <a href="#lavori">Lavori</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <h1>Identità visive per chi fa <em>cose buone</em>.</h1>
+      <p>Siamo uno studio grafico indipendente. Progettiamo brand identity e grafica social per ristoranti, bar, pasticcerie e produttori locali che vogliono farsi riconoscere.</p>
+      <a class="btn" href="#contatti">Prenota una call gratuita di 20 minuti</a>
+    </div>
+  </div>
+
+  <section id="pacchetti">
+    <div class="wrap">
+      <div class="eyebrow">Pacchetti</div>
+      <h2>Tre modi chiari per lavorare insieme.</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Identità base</h3>
+          <div class="price">da 900 €</div>
+          <ul>
+            <li>Logo e varianti</li>
+            <li>Palette colori e tipografia</li>
+            <li>Mini manuale d'uso del marchio</li>
+            <li>Biglietti da visita</li>
+            <li>2 giri di revisione inclusi</li>
+          </ul>
+        </div>
+        <div class="card featured">
+          <h3>Identità + Social</h3>
+          <div class="price">da 1.300 €</div>
+          <ul>
+            <li>Tutto il pacchetto Identità base</li>
+            <li>Kit di template per post e storie</li>
+            <li>Copertine e highlight per Instagram</li>
+            <li>Menu o listino coordinato</li>
+            <li>File pronti per la stampa</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Grafica mensile</h3>
+          <div class="price">da 400 € / mese</div>
+          <ul>
+            <li>12 grafiche social al mese</li>
+            <li>1 locandina o volantino al mese</li>
+            <li>Calendario editoriale condiviso</li>
+            <li>Consegna entro 48 ore lavorative</li>
+            <li>Disdetta con 30 giorni di preavviso</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="metodo">
+    <div class="wrap">
+      <div class="eyebrow">Metodo</div>
+      <h2>Dal primo caffè al file finale.</h2>
+      <div class="steps">
+        <div class="step"><h3>Ascolto</h3><p>Una call o un incontro per capire chi sei, chi sono i tuoi clienti e cosa ti serve davvero.</p></div>
+        <div class="step"><h3>Direzione</h3><p>Ti presentiamo una moodboard e una strategia visiva prima di disegnare qualsiasi cosa.</p></div>
+        <div class="step"><h3>Progetto</h3><p>Sviluppiamo il marchio e le applicazioni, con giri di revisione definiti fin dall'inizio.</p></div>
+        <div class="step"><h3>Consegna</h3><p>Ricevi tutti i file, organizzati e pronti da usare, insieme al manuale del marchio.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="lavori">
+    <div class="wrap">
+      <div class="eyebrow">Lavori</div>
+      <h2>Alcuni progetti.</h2>
+      <div class="works">
+        <div class="work w1"><h3>Osteria del Ponte</h3><p>Brand identity · Menu · Insegna</p></div>
+        <div class="work w2"><h3>Forno Aurora</h3><p>Identità · Packaging · Social</p></div>
+        <div class="work w3"><h3>Cantina Selva</h3><p>Etichette · Kit social</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="chi-siamo">
+    <div class="wrap">
+      <div class="eyebrow">Chi siamo</div>
+      <h2>Due designer, un tavolo, tanti progetti.</h2>
+      <div class="duo">
+        <div class="person">
+          <h3>Nome Cognome</h3>
+          <div class="role">Strategia e rapporto con i clienti</div>
+          <p>Laurea in Design. Segue brief, preventivi e presentazioni, e cura la direzione creativa dei progetti.</p>
+        </div>
+        <div class="person">
+          <h3>Nome Cognome</h3>
+          <div class="role">Progetto e produzione</div>
+          <p>Laurea in Design. Si occupa di sviluppo grafico, esecutivi di stampa e template per i social.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contatti" class="contact">
+    <div class="wrap">
+      <div class="eyebrow">Contatti</div>
+      <h2>Hai un locale o un prodotto da raccontare?</h2>
+      <p>Scrivici due righe su cosa fai e di cosa hai bisogno. Ti rispondiamo entro un giorno lavorativo con una proposta su misura.</p>
+      <a class="btn" href="mailto:ciao@tavolastudio.it">ciao@tavolastudio.it</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© Tavola Studio · P.IVA 00000000000</div>
+</footer>
+
+</body>
+</html>
